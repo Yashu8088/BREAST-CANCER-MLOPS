@@ -35,3 +35,6 @@ app = gr.Interface(
 
 if __name__ == "__main__":
     app.launch()
+
+import os
+print(os.listdir("."))
