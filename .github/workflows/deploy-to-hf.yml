@@ -24,15 +24,11 @@ jobs:
           pip install --upgrade pip
           pip install huggingface_hub
 
-      - name: Login to Hugging Face
+      - name: Push files to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          hf auth login --token $HF_TOKEN
-
-      - name: Push files to Hugging Face Space
-        run: |
-          git clone https://huggingface.co/spaces/Yashu8088/breast-cancer-mlops hf_space
+          git clone https://yashuchouhan:${HF_TOKEN}@huggingface.co/spaces/yashuchouhan/breast-cancer-deployement hf_space
           cd hf_space
           rm -rf *
           cp -r ../app.py ../requirements.txt ../model ../README.md .
