@@ -2,7 +2,8 @@ import mlflow
 import mlflow.sklearn
 import mlflow.xgboost
 import pandas as pd
-
+import os
+import joblib
 import mlflow
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
@@ -27,7 +28,7 @@ def train_model(model_type="logistic"):
 
     df = load_data(data_path)
 
-    X = df.drop("diagnosis", axis=1)
+    X = df.drop(["id","diagnosis"], axis=1)
     y = df["diagnosis"]
 
     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
@@ -70,11 +71,11 @@ def train_model(model_type="logistic"):
         mlflow.log_param("model_type", model_type)
         mlflow.log_metric("accuracy", accuracy)
         mlflow.log_metric("roc_auc", roc_auc)
+        mlflow.sklearn.log_model(pipeline, "model")  # for tests purpose
+        mlflow.sklearn.log_model(pipeline, f"model_{model_type}") #for tracking purpose
 
-        if model_type == "logistic":
-            mlflow.sklearn.log_model(pipeline, "model")
-        else:
-            mlflow.xgboost.log_model(model, "model")
+        os.makedirs("model", exist_ok=True)
+        joblib.dump(pipeline, f"model/{model_type}.pkl")
 
         run_id = run.info.run_id
 

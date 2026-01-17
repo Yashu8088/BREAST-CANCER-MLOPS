@@ -6,6 +6,7 @@ xgboost
 gradio
 mlflow
 scikit-learn
-xgboost
+mlflow
 pandas
 numpy
+- app.py

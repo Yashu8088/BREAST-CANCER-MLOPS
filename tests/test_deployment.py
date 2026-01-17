@@ -26,7 +26,7 @@ def test_tc5_deployment():
     model = mlflow.pyfunc.load_model(model_uri)
 
     df = pd.read_csv(data_path)
-    sample = df.drop("diagnosis", axis=1).iloc[:1]
+    sample = df.drop(["id", "diagnosis"], axis=1).iloc[:1]
 
     prediction = model.predict(sample)
 
