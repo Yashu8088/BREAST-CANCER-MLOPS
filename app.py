@@ -3,7 +3,7 @@ import mlflow.pyfunc
 import pandas as pd
 
 # Load MLflow model
-model = mlflow.pyfunc.load_model("model")
+model = mlflow.pyfunc.load_model(".")
 
 feature_names = [
     "radius_mean",
