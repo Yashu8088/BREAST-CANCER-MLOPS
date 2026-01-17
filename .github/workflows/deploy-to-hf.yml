@@ -21,21 +21,21 @@ jobs:
 
       - name: Install Hugging Face Hub
         run: |
+          pip install --upgrade pip
           pip install huggingface_hub
 
       - name: Login to Hugging Face
-  env:
-    HF_TOKEN: ${{ secrets.HF_TOKEN }}
-  run: |
-    hf auth login --token $HF_TOKEN
-
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          hf auth login --token $HF_TOKEN
 
       - name: Push files to Hugging Face Space
         run: |
-          git clone https://huggingface.co/spaces/<HF_USERNAME>/breast-cancer-mlops hf_space
+          git clone https://huggingface.co/spaces/Yashu8088/breast-cancer-mlops hf_space
           cd hf_space
           rm -rf *
           cp -r ../app.py ../requirements.txt ../model ../README.md .
           git add .
-          git commit -m "Deploy from GitHub Actions"
+          git commit -m "Deploy from GitHub Actions" || echo "Nothing to commit"
           git push
