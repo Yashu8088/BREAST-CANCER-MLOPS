@@ -51,4 +51,5 @@ Enter the feature values to predict whether the tumor is Benign or Malignant.
 | concave_points_worst | 0.220 | 0.040 |
 | symmetry_worst | 0.350 | 0.220 |
 | fractal_dimension_worst | 0.110 | 0.080 |
->>>>>>> bb5b9e0 (Readme.md)
+
+Enter the values above and click Predict to see the result instantly.
