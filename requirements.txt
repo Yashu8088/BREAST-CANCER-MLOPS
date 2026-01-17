@@ -1,7 +1,11 @@
 pytest
 scikit-learn
-pandas
-numpy
 matplotlib
 seaborn
 xgboost
+gradio
+mlflow
+scikit-learn
+xgboost
+pandas
+numpy
