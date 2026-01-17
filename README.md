@@ -86,3 +86,8 @@ concavity_worst: 0.090
 concave_points_worst: 0.040
 symmetry_worst: 0.220
 fractal_dimension_worst: 0.080
+
+Enter the values above and click **Predict** to see the result instantly.
+
+
+
