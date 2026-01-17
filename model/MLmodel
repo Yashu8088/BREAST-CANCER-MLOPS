@@ -1,4 +1,4 @@
-artifact_path: file:///C:/Users/yashu/OneDrive/MLOPs/MLOPS_BREAST_CANCER_PROJECT/mlruns/1/models/m-0c922cab419641e6a748442abbb34d62/artifacts
+artifact_path: artifacts
 flavors:
   python_function:
     data: model.ubj
