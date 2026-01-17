@@ -3,7 +3,8 @@ scikit-learn
 matplotlib
 seaborn
 xgboost
-gradio
+gradio==4.44.0
+huggingface_hub==0.23.5
 mlflow
 scikit-learn
 mlflow
